@@ -100,7 +100,7 @@ const dashboardCard05 = () => {
           scales: {
             y: {
               border: {
-                display: false,
+                display: true,
               },
               suggestedMin: 30,
               suggestedMax: 80,

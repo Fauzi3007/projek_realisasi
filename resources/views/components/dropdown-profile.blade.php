@@ -36,8 +36,13 @@
         </div>
         <ul>
             <li>
-                <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3" href="{{ route('profile.show') }}" @click="open = false" @focus="open = true" @focusout="open = false">Settings</a>
+                <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3" href="{{ route('profile.show') }}" @click="open = false" @focus="open = true" @focusout="open = false">Pengaturan</a>
             </li>
+            {{-- <li>
+                
+                <a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3" href="{{route('register')}}">{{ __('Tambah User') }}</a>
+                        
+            </li> --}}
             <li>
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
@@ -48,7 +53,7 @@
                         @focus="open = true"
                         @focusout="open = false"
                     >
-                        {{ __('Sign Out') }}
+                        {{ __('Log Out') }}
                     </a>
                 </form>                                
             </li>

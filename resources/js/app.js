@@ -7,20 +7,15 @@ import { Chart } from 'chart.js';
 
 // Import flatpickr
 import flatpickr from 'flatpickr';
+import indo from 'flatpickr/dist/l10n/id';
 
 // Import TailwindCSS variables
 import { tailwindConfig } from './utils';
 
 // import component from './components/component';
-import dashboardCard01 from './components/dashboard-card-01';
-import dashboardCard02 from './components/dashboard-card-02';
-import dashboardCard03 from './components/dashboard-card-03';
-import dashboardCard04 from './components/dashboard-card-04';
+// 
 import dashboardCard05 from './components/dashboard-card-05';
-import dashboardCard06 from './components/dashboard-card-06';
-import dashboardCard08 from './components/dashboard-card-08';
-import dashboardCard09 from './components/dashboard-card-09';
-import dashboardCard11 from './components/dashboard-card-11';
+
 
 // Call Alpine
 window.Alpine = Alpine;
@@ -92,14 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   // Flatpickr
+
+
+
   flatpickr('.datepicker', {
-    mode: 'range',
+    mode: 'single',
     static: true,
     monthSelectorType: 'static',
-    dateFormat: 'M j, Y',
-    defaultDate: [new Date().setDate(new Date().getDate() - 6), new Date()],
+    dateFormat: 'Y-m-d',
     prevArrow: '<svg class="fill-current" width="7" height="11" viewBox="0 0 7 11"><path d="M5.4 10.8l1.4-1.4-4-4 4-4L5.4 0 0 5.4z" /></svg>',
     nextArrow: '<svg class="fill-current" width="7" height="11" viewBox="0 0 7 11"><path d="M1.4 10.8L0 9.4l4-4-4-4L1.4 0l5.4 5.4z" /></svg>',
+    locale:'id',
     onReady: (selectedDates, dateStr, instance) => {
       // eslint-disable-next-line no-param-reassign
       instance.element.value = dateStr.replace('to', '-');
@@ -111,13 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       instance.element.value = dateStr.replace('to', '-');
     },
   });
-  dashboardCard01();
-  dashboardCard02();
-  dashboardCard03();
-  dashboardCard04();
+
   dashboardCard05();
-  dashboardCard06();
-  dashboardCard08();
-  dashboardCard09();
-  dashboardCard11();
+  
 });

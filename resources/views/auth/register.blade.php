@@ -1,5 +1,5 @@
 <x-authentication-layout>
-    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ __('Create your Account') }} ✨</h1>
+    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{ __('Create your Account') }} </h1>
     <!-- Form -->
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -25,15 +25,8 @@
             </div>
         </div>
         <div class="flex items-center justify-between mt-6">
-            <div class="mr-1">
-                <label class="flex items-center" name="newsletter" id="newsletter">
-                    <input type="checkbox" class="form-checkbox" />
-                    <span class="text-sm ml-2">Email me about product news.</span>
-                </label>
-            </div>
-            <x-jet-button>
-                {{ __('Sign Up') }}
-            </x-jet-button>                
+            
+            <button type="submit" class="px-4 py-2 rounded-md bg-blue-500 text-white">Simpan</button>
         </div>
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-6">
@@ -50,10 +43,5 @@
             @endif        
     </form>
     <x-jet-validation-errors class="mt-4" />  
-    <!-- Footer -->
-    <div class="pt-5 mt-6 border-t border-slate-200">
-        <div class="text-sm">
-            {{ __('Have an account?') }} <a class="font-medium text-indigo-500 hover:text-indigo-600" href="{{ route('login') }}">{{ __('Sign In') }}</a>
-        </div>
-    </div>
+  
 </x-authentication-layout>
