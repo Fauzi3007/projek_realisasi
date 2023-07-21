@@ -46,6 +46,7 @@ class DetailController extends Controller
                 $detail = Detail_Laporan::join('riwayat__laporan__satkers','riwayat_laporan_satker_id_riwayat_laporan_satker','=','id_riwayat_laporan_satker')
                 ->join('riwayat__laporans','riwayat_laporan_id_riwayat_laporan','=','id_riwayat_laporan')
                 ->select('pagu','realisasi','satker_id_satker','direktorat_id_direktorat','tanggal')
+                ->where('satker_id_satker','=',$satker)
                 ->where('direktorat_id_direktorat','=',$pagu->id_direktorat)->where('tanggal','=',$tgl->tanggal)
                 ->first();
                 
@@ -104,6 +105,7 @@ class DetailController extends Controller
                 $detail = Detail_Laporan::join('riwayat__laporan__satkers','riwayat_laporan_satker_id_riwayat_laporan_satker','=','id_riwayat_laporan_satker')
                 ->join('riwayat__laporans','riwayat_laporan_id_riwayat_laporan','=','id_riwayat_laporan')
                 ->select('pagu','realisasi','satker_id_satker','direktorat_id_direktorat','tanggal')
+                ->where('satker_id_satker','=',$satker)
                 ->where('direktorat_id_direktorat','=',$pagu->id_direktorat)->where('tanggal','=',$tgl->tanggal)
                 ->first();
                 
