@@ -8,9 +8,12 @@
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                @cannot('admin')
+                    
                 @livewire('profile.update-profile-information-form')
-
+                
                 <x-jet-section-border />
+                @endcannot
             @endif
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
@@ -27,11 +30,14 @@
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-jet-section-border />
-
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
+            @cannot('admin')
+                
+            <x-jet-section-border />
+            
+            <div class="mt-10 sm:mt-0">
+                @livewire('profile.delete-user-form')
+            </div>
+            @endcannot
             @endif
         </div>
     </div>

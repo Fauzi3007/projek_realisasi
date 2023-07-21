@@ -62,20 +62,20 @@
       <!-- filter -->
       <div class="m-3">
         <p class="my-3">Filter Tampilan Persentase Realisasi Dari Tanggal</p>
-        <form action="/filter/{{$tanggal}}/{{$id}}/{{$satker}}" class="flex items-center">
-            <div class=" flex">
-                <input class="datepicker form-input pl-9 dark:bg-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200 font-medium w-[15.5rem]"
-                       placeholder="Pilih Tanggal Awal" required name="tglAwal" data-class="flatpickr-left" />
-                
-            </div>
-            <p class="mx-2">Sampai</p>
-            <div class=" flex">
-                <input class="datepicker form-input pl-9 dark:bg-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200 font-medium w-[15.5rem]"
-                       placeholder="Pilih Tanggal Akhir" required name="tglAkhir" data-class="flatpickr-left" />
-            </div>
-            <button type="submit" class="px-4 py-2 rounded-md bg-blue-500 text-white ml-3">Filter</button>
+        <form action="/filter/{{$tanggal}}/{{$id}}/{{$satker}}" class="flex flex-col sm:flex-row items-center">
+          <div class="flex items-center mb-2 sm:mb-0">
+            <input class="datepicker form-input pl-9 dark:bg-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200 font-medium w-full sm:w-[15.5rem]"
+                   placeholder="Pilih Tanggal Awal" required name="tglAwal" data-class="flatpickr-left" />
+          </div>
+          <p class="mx-2">Sampai</p>
+          <div class="flex items-center mb-2 sm:mb-0">
+            <input class="datepicker form-input pl-9 dark:bg-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-200 font-medium w-full sm:w-[15.5rem]"
+                   placeholder="Pilih Tanggal Akhir" required name="tglAkhir" data-class="flatpickr-left" />
+          </div>
+          <button type="submit" class="px-4 py-2 rounded-md bg-blue-500 text-white ml-0 sm:ml-3">Filter</button>
         </form>
       </div>
+      
     
     
       <!-- chart -->

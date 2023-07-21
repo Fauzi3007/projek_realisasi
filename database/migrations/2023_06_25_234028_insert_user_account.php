@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
+            'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
         ]);
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {        
-        DB::table('users')->where('email', 'john@example.com')->delete();
+        DB::table('users')->where('email', 'admin@admin.com')->delete();
     }
 };

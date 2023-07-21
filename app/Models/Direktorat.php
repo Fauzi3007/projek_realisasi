@@ -14,4 +14,6 @@ class Direktorat extends Model
     public function detail(){
         return $this->hasMany(Detail_Laporan::class);
     }
+
+    
 }

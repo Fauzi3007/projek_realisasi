@@ -1,6 +1,9 @@
 <x-authentication-layout>
-    <h1 class="text-2xl text-center text-slate-800 dark:text-slate-100 font-bold mb-6">{{ __('SISTEM INFORMASI REALISASI KEUANGAN DIRJEN PPKTRANS') }}</h1>
-    @if (session('status'))
+    <h1 class="text-2xl text-center text-slate-800 dark:text-slate-100 font-bold mb-6">
+        {{ __('SISTEM INFORMASI') }}<br>
+        {{ __('LAPORAN KEUANGAN') }}
+      </h1>
+          @if (session('status'))
         <div class="mb-4 font-medium text-sm text-green-600">
             {{ session('status') }}
         </div>
@@ -27,11 +30,16 @@
                 </div>
             @endif             --}}
             <x-jet-button>
-                {{ __('Sign in') }}
+                {{ __('Log in') }}
             </x-jet-button>            
         </div>
     </form>
     <x-jet-validation-errors class="mt-4" />   
    
-
+    <div class="pt-5 mt-6 border-t border-slate-200">
+        <div class="text-sm">
+            {{ __('Belum Punya Akun?') }} <a class="font-medium text-indigo-500 hover:text-indigo-600" href="{{ route('register') }}">{{ __('Daftar') }}</a>
+        </div>
+       
+    </div>
 </x-authentication-layout>

@@ -33,19 +33,20 @@ class DetailController extends Controller
        
 
         $jumlahData = count($persentase);
-
+        
         $data = [];
         foreach ($persentase as $persen) {
            $data[]=[$persen->tanggal,$persen->total_persentase];
         }
         $dataPersen = json_encode($data);
-        
+
         $paguReal = [];
         foreach ($persentase as $tgl){
             foreach ($tampilDirektorat as $pagu) {
                 $detail = Detail_Laporan::join('riwayat__laporan__satkers','riwayat_laporan_satker_id_riwayat_laporan_satker','=','id_riwayat_laporan_satker')
                 ->join('riwayat__laporans','riwayat_laporan_id_riwayat_laporan','=','id_riwayat_laporan')
                 ->select('pagu','realisasi','satker_id_satker','direktorat_id_direktorat','tanggal')
+                ->where('satker_id_satker','=',$satker)
                 ->where('direktorat_id_direktorat','=',$pagu->id_direktorat)->where('tanggal','=',$tgl->tanggal)
                 ->first();
                 
@@ -61,7 +62,6 @@ class DetailController extends Controller
             $slice = array_slice($paguReal,($jumlahDirektorat*2)*$i,$jumlahDirektorat*2);
             $tampilRealisasi[] = $slice;
         }
-
        
         return view('pages.detailLaporan.detail',compact('dataPersen','nama_satker','tampilDirektorat',
         'jumlahDirektorat','jumlahData','tampilRealisasi','persentase','paguReal','tanggal','id','satker'));
@@ -104,6 +104,7 @@ class DetailController extends Controller
                 $detail = Detail_Laporan::join('riwayat__laporan__satkers','riwayat_laporan_satker_id_riwayat_laporan_satker','=','id_riwayat_laporan_satker')
                 ->join('riwayat__laporans','riwayat_laporan_id_riwayat_laporan','=','id_riwayat_laporan')
                 ->select('pagu','realisasi','satker_id_satker','direktorat_id_direktorat','tanggal')
+                ->where('satker_id_satker','=',$satker)
                 ->where('direktorat_id_direktorat','=',$pagu->id_direktorat)->where('tanggal','=',$tgl->tanggal)
                 ->first();
                 

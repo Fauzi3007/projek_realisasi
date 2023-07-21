@@ -21,10 +21,13 @@ class uploadController extends Controller
     public function index(Request $request){
         set_time_limit(180);
 
-        $tanggal = $request->filled('tanggalRL') ? $request->input('tanggalRL') : Carbon::now();
+        $tanggal = $request->filled('tanggal') ? $request->input('tanggal') : Carbon::now();
 
+        $request->validate([
+            'tanggal'=>'required|unique:riwayat__laporans',
+            'excel_file' => 'required|file|mimes:xls,xlsx',
+        ]);
         $idRLTerakhir = Riwayat_Laporan::max('id_riwayat_laporan'); // ambil id terakhir riwayat_laporan
-
         if ($idRLTerakhir) {
             $numericRL = intval(substr($idRLTerakhir, 2));
             $numericRL++;
@@ -37,7 +40,7 @@ class uploadController extends Controller
             'id_riwayat_laporan'=> $RLId,
             'tanggal'=> $tanggal
         ]);
-
+        
         $file = $request->file('excel_file');
         $spreadsheet = IOFactory::load($file->getPathname());
         $worksheet = $spreadsheet->getActiveSheet();

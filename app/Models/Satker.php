@@ -14,4 +14,6 @@ class Satker extends Model
     public function satker_to_rls(){
         return $this->hasMany(Riwayat_Laporan_Satker::class);
     }
+
+   
 }
